@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+     
+     double distance, time, speed;
+     cout << "Enter distance (km): ";
+     cin >> distance;
+     cout << "Enter time (hours): ";
+     cin >> time;
+     speed = distance / time;
+     cout << "Speed is; " << speed <<"km/h"
+     << endl; 
+     
+     return 0;
+
+
+}
