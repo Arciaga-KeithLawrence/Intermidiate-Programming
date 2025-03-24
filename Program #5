@@ -1,0 +1,27 @@
+//Arciaga, Keith Lawrence B.
+//IT-1R
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Input and display the user's name
+    string name;
+    cout << "Enter the name of the user: ";
+    cin >> name;
+    cout << "Hello " << name << "\n\n";
+
+    // Input two numbers
+    int num1, num2;
+    cout << "Enter two numbers:\n";
+    cin >> num1 >> num2;
+
+    // Perform calculations and display results
+    cout << "\nThe sum of two numbers is: " << num1 + num2;
+    cout << "\nThe difference of two numbers is: " << num1 - num2;
+    cout << "\nThe product of two numbers is: " << num1 * num2;
+    cout << "\nThe quotient of two numbers is: " << num1 / num2;
+    cout << "\nThe modulus of first number is: " << num1 % num2;
+
+    return 0;
+}
