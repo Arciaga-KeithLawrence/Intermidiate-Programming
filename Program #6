@@ -1,0 +1,42 @@
+//Arciaga, Keith Lawrence B.
+//BSIT - 1R
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int num, sum = 0, temp;
+
+    // Prompt the user to enter a positive number
+    do {
+        cout << "Enter a positive number: ";
+        cin >> num;
+    } while (num <= 0); // Input validation: Ensure the number is positive
+
+
+    temp = num; // Store the original number for later use
+
+    // Calculate the sum of digits
+    do {
+        sum += temp % 10;
+        temp /= 10;
+    } while (temp > 0);
+
+    cout << "The sum of the digits is: " << sum << endl;
+
+    // Divisibility tests using a do...while loop
+    int divisors[] = {2, 3, 4, 5, 6, 7, 8, 9};
+    int i = 0;
+    do {
+        if (num % divisors[i] == 0) {
+            cout << num << " is divisible by " << divisors[i] << endl;
+        } else {
+            cout << num << " is not divisible by " << divisors[i] << endl;
+        }
+        i++;
+    } while (i < sizeof(divisors) / sizeof(divisors[0]));
+
+
+    return 0;
+}
