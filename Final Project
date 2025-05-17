@@ -1,0 +1,66 @@
+#include <iostream>
+#include <cstdlib> // For rand() and srand()
+#include <ctime>   // For time
+
+using namespace std;
+
+enum Choice { ROCK = 1, PAPER, SCISSORS };
+
+void displayChoices() {
+    cout << "Choose an option:\n";
+    cout << "1. Rock\n";
+    cout << "2. Paper\n";
+    cout << "3. Scissors\n";
+}
+
+Choice getComputerChoice() {
+    return static_cast<Choice>(rand() % 3 + 1); // Random choice between 1 and 3
+}
+
+void determineWinner(Choice player, Choice computer) {
+    if (player == computer) {
+        cout << "It's a tie!\n";
+    } else if ((player == ROCK && computer == SCISSORS) ||
+               (player == PAPER && computer == ROCK) ||
+               (player == SCISSORS && computer == PAPER)) {
+        cout << "You win!\n";
+    } else {
+        cout << "Computer wins!\n";
+    }
+}
+
+int main() {
+    srand(static_cast<unsigned int>(time(0))); // Seed the random number generator
+
+    char playAgain;
+    do {
+        displayChoices();
+        int playerChoice;
+        cout << "Enter your choice (1-3): ";
+        cin >> playerChoice;
+
+        if (playerChoice < 1 || playerChoice > 3) {
+            cout << "Invalid choice. Please try again.\n";
+            continue;
+        }
+
+        Choice player = static_cast<Choice>(playerChoice);
+        Choice computer = getComputerChoice();
+
+        cout << "Computer chose: ";
+        switch (computer) {
+            case ROCK: cout << "Rock\n"; break;
+            case PAPER: cout << "Paper\n"; break;
+            case SCISSORS: cout << "Scissors\n"; break;
+        }
+
+        determineWinner(player, computer);
+
+        cout << "Do you want to play again? (y/n): ";
+        cin >> playAgain;
+
+    } while (playAgain == 'y' || playAgain == 'Y');
+
+    cout << "Thanks for playing!\n";
+    return 0;
+}
